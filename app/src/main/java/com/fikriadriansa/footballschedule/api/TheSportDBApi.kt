@@ -1,7 +1,7 @@
 package com.fikriadriansa.footballschedule.api
 
 import android.net.Uri
-import com.divisicodelabs.footballschedule.BuildConfig
+import com.fikriadriansa.footballschedule.BuildConfig
 
 object TheSportDBApi {
 

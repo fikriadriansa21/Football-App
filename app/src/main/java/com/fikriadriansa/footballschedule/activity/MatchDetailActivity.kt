@@ -2,7 +2,7 @@ package com.fikriadriansa.footballschedule.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.divisicodelabs.footballschedule.R
+import com.fikriadriansa.footballschedule.R
 
 class MatchDetailActivity : AppCompatActivity() {
 

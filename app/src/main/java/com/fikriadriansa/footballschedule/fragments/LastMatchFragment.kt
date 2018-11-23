@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.divisicodelabs.footballschedule.R
+import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
 import com.fikriadriansa.footballschedule.adapter.LastMatchAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository

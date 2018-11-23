@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule
+package com.fikriadriansa.footballschedule
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.divisicodelabs.footballschedule.R
+import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.model.Event
 
 class NextMatchAdapter(private val events: List<Event>) : RecyclerView.Adapter<NextMatchViewHolder>(){

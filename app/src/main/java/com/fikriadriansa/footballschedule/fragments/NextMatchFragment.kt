@@ -6,9 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.divisicodelabs.footballschedule.R
-import com.fikriadriansa.footballschedule.adapter.LastMatchAdapter
+import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.adapter.NextMatchAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.invisible
@@ -17,7 +15,6 @@ import com.fikriadriansa.footballschedule.presenter.MainPresenter
 import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.visible
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_last_match.*
 import kotlinx.android.synthetic.main.fragment_next_match.*
 import org.jetbrains.anko.support.v4.onRefresh
 
