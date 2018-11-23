@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule.fragments
+package com.fikriadriansa.footballschedule.fragments
 
 
 import android.os.Bundle
@@ -8,18 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.divisicodelabs.footballschedule.R
-import com.divisicodelabs.footballschedule.adapter.LastMatchAdapter
-import com.divisicodelabs.footballschedule.adapter.NextMatchAdapter
-import com.divisicodelabs.footballschedule.api.ApiRepository
-import com.divisicodelabs.footballschedule.invisible
-import com.divisicodelabs.footballschedule.model.Event
-import com.divisicodelabs.footballschedule.presenter.MainPresenter
-import com.divisicodelabs.footballschedule.view.MainView
-import com.divisicodelabs.footballschedule.visible
+import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
+import com.fikriadriansa.footballschedule.adapter.LastMatchAdapter
+import com.fikriadriansa.footballschedule.api.ApiRepository
+import com.fikriadriansa.footballschedule.invisible
+import com.fikriadriansa.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.presenter.MainPresenter
+import com.fikriadriansa.footballschedule.view.MainView
+import com.fikriadriansa.footballschedule.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
-import kotlinx.android.synthetic.main.fragment_next_match.*
 import org.jetbrains.anko.support.v4.onRefresh
+import org.jetbrains.anko.support.v4.startActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,25 +30,25 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class NextMatchFragment : Fragment(), MainView{
+class LastMatchFragment : Fragment(), MainView {
 
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter
-    private lateinit var adapterNextMatch: NextMatchAdapter
+    private lateinit var adapterLastMatch: LastMatchAdapter
 
     override fun showLoading() {
-        progress_nextmatch.visible()
+        progress_lastmatch.visible()
     }
 
     override fun hideLoading() {
-        progress_nextmatch.invisible()
+        progress_lastmatch.invisible()
     }
 
     override fun showListMatch(data: List<Event>) {
-        swipe_nextmatch.isRefreshing = false
+        swipe_lastmatch.isRefreshing = false
         events.clear()
         events.addAll(data)
-        adapterNextMatch.notifyDataSetChanged()
+        adapterLastMatch.notifyDataSetChanged()
     }
 
     override fun onCreateView(
@@ -56,24 +56,30 @@ class NextMatchFragment : Fragment(), MainView{
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_next_match, container, false)
+        return inflater.inflate(R.layout.fragment_last_match, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapterNextMatch = NextMatchAdapter(events)
-        rvNextMatch.adapter = adapterNextMatch
+        adapterLastMatch = LastMatchAdapter(events)
+        rvLastMatch.adapter = adapterLastMatch
 
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
 
-        presenter.getListNextMatch()
-        swipe_nextmatch.onRefresh {
-            presenter.getListNextMatch()
+        presenter.getListLastMatch()
+        swipe_lastmatch.onRefresh {
+            presenter.getListLastMatch()
         }
     }
 
+    private fun itemClicked(event: Event){
+        startActivity<MatchDetailActivity>(
+
+        )
+    }
 
 }

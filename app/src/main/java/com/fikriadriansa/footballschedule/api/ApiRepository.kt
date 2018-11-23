@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule.api
+package com.fikriadriansa.footballschedule.api
 
 import java.net.URL
 

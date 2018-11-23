@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule.model
+package com.fikriadriansa.footballschedule.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.Expose

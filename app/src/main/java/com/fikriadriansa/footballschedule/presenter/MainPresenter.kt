@@ -1,10 +1,10 @@
-package com.divisicodelabs.footballschedule.presenter
+package com.fikriadriansa.footballschedule.presenter
 
 import android.util.Log
-import com.divisicodelabs.footballschedule.api.ApiRepository
-import com.divisicodelabs.footballschedule.api.TheSportDBApi
-import com.divisicodelabs.footballschedule.model.EventResponse
-import com.divisicodelabs.footballschedule.view.MainView
+import com.fikriadriansa.footballschedule.api.ApiRepository
+import com.fikriadriansa.footballschedule.api.TheSportDBApi
+import com.fikriadriansa.footballschedule.model.EventResponse
+import com.fikriadriansa.footballschedule.view.MainView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

@@ -1,10 +1,10 @@
-package com.divisicodelabs.footballschedule.adapter
+package com.fikriadriansa.footballschedule.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.divisicodelabs.footballschedule.fragments.LastMatchFragment
-import com.divisicodelabs.footballschedule.fragments.NextMatchFragment
+import com.fikriadriansa.footballschedule.fragments.LastMatchFragment
+import com.fikriadriansa.footballschedule.fragments.NextMatchFragment
 
 class EventPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {

@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule.adapter
+package com.fikriadriansa.footballschedule.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,11 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.divisicodelabs.footballschedule.R
-import com.divisicodelabs.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.model.Event
 
 class NextMatchAdapter(private val events: List<Event>) : RecyclerView.Adapter<NextMatchViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): NextMatchViewHolder {
-        return NextMatchViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_event_nextmatch,parent,false))
+        return NextMatchViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_event_nextmatch,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int = events.size

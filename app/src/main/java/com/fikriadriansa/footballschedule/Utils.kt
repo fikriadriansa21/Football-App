@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule
+package com.fikriadriansa.footballschedule
 
 import android.view.View
 

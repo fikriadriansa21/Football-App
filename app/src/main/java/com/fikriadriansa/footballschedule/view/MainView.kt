@@ -1,7 +1,7 @@
-package com.divisicodelabs.footballschedule.view
+package com.fikriadriansa.footballschedule.view
 
 import android.util.EventLog
-import com.divisicodelabs.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.model.Event
 
 interface MainView {
     fun showLoading()

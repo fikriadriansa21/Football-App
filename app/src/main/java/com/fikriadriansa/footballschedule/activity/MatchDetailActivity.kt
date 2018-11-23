@@ -1,4 +1,4 @@
-package com.divisicodelabs.footballschedule.activity
+package com.fikriadriansa.footballschedule.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
