@@ -3,6 +3,7 @@ package com.fikriadriansa.footballschedule.presenter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
 import com.fikriadriansa.footballschedule.model.EventResponse
+import com.fikriadriansa.footballschedule.model.TeamDetailResponse
 import com.fikriadriansa.footballschedule.view.MainView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
@@ -42,4 +43,19 @@ class MainPresenter(private val view: MainView,
             }
         }
     }
+
+//    fun getListTeamDetail() {
+//        view.showLoading()
+//        doAsync {
+//            val data = gson.fromJson(apiRepository
+//                .doRequest(TheSportDBApi.getTeamDetail()),
+//                TeamDetailResponse::class.java
+//            )
+//
+//            uiThread {
+//                view.hideLoading()
+//                view.showListTeamDetail(data.teams)
+//            }
+//        }
+//    }
 }

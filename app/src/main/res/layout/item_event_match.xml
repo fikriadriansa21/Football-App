@@ -11,11 +11,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             card_view:cardCornerRadius="4dp">
 
         <TextView
-            android:id="@+id/tv_date_lastmatch"
+            android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"

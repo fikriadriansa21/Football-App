@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
-import com.fikriadriansa.footballschedule.adapter.LastMatchAdapter
+import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.invisible
 import com.fikriadriansa.footballschedule.model.Event
@@ -33,18 +33,18 @@ class LastMatchFragment : Fragment(), MainView {
 
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter
-    private lateinit var adapterLastMatch: LastMatchAdapter
+    private lateinit var adapterLastMatch: EventAdapter
 
     override fun showLoading() {
-        progress_lastmatch.visible()
+        progress_match.visible()
     }
 
     override fun hideLoading() {
-        progress_lastmatch.invisible()
+        progress_match.invisible()
     }
 
     override fun showListMatch(data: List<Event>) {
-        swipe_lastmatch.isRefreshing = false
+        swipe_event.isRefreshing = false
         events.clear()
         events.addAll(data)
         adapterLastMatch.notifyDataSetChanged()
@@ -62,23 +62,25 @@ class LastMatchFragment : Fragment(), MainView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapterLastMatch = LastMatchAdapter(events)
-        rvLastMatch.adapter = adapterLastMatch
+        adapterLastMatch = EventAdapter(events,{events:Event->partItemClicked(events)})
+        rvEvent.adapter = adapterLastMatch
 
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
 
         presenter.getListLastMatch()
-        swipe_lastmatch.onRefresh {
+        swipe_event.onRefresh {
             presenter.getListLastMatch()
         }
     }
 
-    private fun itemClicked(event: Event){
+    private fun partItemClicked(events: Event) {
         startActivity<MatchDetailActivity>(
-
+            "date" to events.dateEvent
         )
     }
+
+
 
 }

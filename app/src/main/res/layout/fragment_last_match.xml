@@ -6,7 +6,7 @@
              android:layout_height="match_parent"
              tools:context="com.fikriadriansa.footballschedule.fragments.LastMatchFragment">
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_lastmatch"
+            android:id="@+id/swipe_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RelativeLayout
@@ -14,13 +14,13 @@
                 android:layout_height="wrap_content">
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvLastMatch"
+                    android:id="@+id/rvEvent"
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
             <ProgressBar
-                    android:id="@+id/progress_lastmatch"
+                    android:id="@+id/progress_match"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </RelativeLayout>
