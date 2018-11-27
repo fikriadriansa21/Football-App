@@ -39,14 +39,13 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_detail)
-
         getDataEvent = intent.getParcelableExtra<Event>("data")
+
         val request = ApiRepository()
         val gson = Gson()
         presenter = TeamDetailPresenter(this, request, gson)
         presenter.getDetailTeamHome(getDataEvent.idHomeTeam)
         presenter.getDetailTeamAway(getDataEvent.idAwayTeam)
-
     }
 
     override fun showLoading() {
@@ -66,7 +65,6 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
         tv_date_detail.text = getDataEvent.dateEvent
         tv_score_home_detail.text = getDataEvent.intHomeScore
         tv_goals_detail_home.text = getDataEvent.strHomeGoalDetails.toString().replace(";","\n")
-        tv_home_shots.text = getDataEvent.intHomeShots
         tv_home_gk.text = getDataEvent.strHomeLineupGoalkeeper.toString().replace(";","\n")
         tv_home_def.text = getDataEvent.strHomeLineupDefense.toString().replace(";","\n")
         tv_home_mid.text = getDataEvent.strHomeLineupMidfield.toString().replace(";","\n")
@@ -82,7 +80,6 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
         tv_team_away_detail.text = getDataEvent.strAwayTeam
         tv_score_away_detail.text = getDataEvent.intAwayScore
         tv_goals_detail_away.text = getDataEvent.strAwayGoalDetails.toString().replace(";","\n")
-        tv_away_shots.text = getDataEvent.intAwayShots
         tv_away_gk.text = getDataEvent.strAwayLineupGoalkeeper.toString().replace(";","\n")
         tv_away_def.text = getDataEvent.strAwayLineupDefense.toString().replace(";","\n")
         tv_away_mid.text = getDataEvent.strAwayLineupMidfield.toString().replace(";","\n")
