@@ -5,44 +5,42 @@ import com.fikriadriansa.footballschedule.api.TheSportDBApi
 import com.fikriadriansa.footballschedule.model.EventResponse
 import com.fikriadriansa.footballschedule.model.TeamDetailResponse
 import com.fikriadriansa.footballschedule.view.MainView
+import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class MainPresenter(private val view: MainView,
-                    private val apiRepository: ApiRepository,
-                    private val gson: Gson) {
-
-    fun getListLastMatch() {
+class TeamDetailPresenter(private val view: TeamDetailView,
+                          private val apiRepository: ApiRepository,
+                          private val gson: Gson
+)  {
+    fun getDetailTeamHome(idEvent: String?) {
         view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getLastMatch()),
-                EventResponse::class.java
+                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+                TeamDetailResponse::class.java
             )
 
             uiThread {
                 view.hideLoading()
-                view.showListMatch(data.events)
+                view.showDetailHomeMatch(data.teams)
             }
         }
     }
 
-
-    fun getListNextMatch() {
+    fun getDetailTeamAway(idEvent: String?) {
         view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getNextMatch()),
-                EventResponse::class.java
+                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+                TeamDetailResponse::class.java
             )
 
             uiThread {
                 view.hideLoading()
-                view.showListMatch(data.events)
+                view.showDetailAwayMatch(data.teams)
             }
         }
     }
-
-
 }

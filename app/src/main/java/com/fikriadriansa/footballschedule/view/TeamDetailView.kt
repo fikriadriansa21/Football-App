@@ -3,9 +3,10 @@ package com.fikriadriansa.footballschedule.view
 import com.fikriadriansa.footballschedule.model.Event
 import com.fikriadriansa.footballschedule.model.TeamDetail
 
-interface MainView {
+interface TeamDetailView {
     fun showLoading()
     fun hideLoading()
-    fun showListMatch(data: List<Event>)
+    fun showDetailHomeMatch(data: List<TeamDetail>)
+    fun showDetailAwayMatch(data: List<TeamDetail>)
 
 }

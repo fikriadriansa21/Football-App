@@ -12,6 +12,7 @@ import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.invisible
 import com.fikriadriansa.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.MainPresenter
 import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.visible
@@ -31,10 +32,11 @@ private const val ARG_PARAM2 = "param2"
  */
 class NextMatchFragment : Fragment(), MainView {
 
+
     private var events: MutableList<Event> = mutableListOf()
+    private var teamDetail: MutableList<TeamDetail> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapterNextMatch: EventAdapter
-//    private var listener: OnFragmentInteractionListener? = null
 
     override fun showLoading() {
         progress_match.visible()
@@ -51,6 +53,7 @@ class NextMatchFragment : Fragment(), MainView {
         adapterNextMatch.notifyDataSetChanged()
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,7 +65,9 @@ class NextMatchFragment : Fragment(), MainView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapterNextMatch = EventAdapter(events,{events:Event->partItemClicked(events)})
+        adapterNextMatch = EventAdapter(
+            events,
+            {events:Event->partItemClicked(events)})
         rvEvent.adapter = adapterNextMatch
 
         val request = ApiRepository()
@@ -77,7 +82,8 @@ class NextMatchFragment : Fragment(), MainView {
 
     private fun partItemClicked(events: Event) {
         startActivity<MatchDetailActivity>(
-            "date" to events.dateEvent
+            "data" to events
+
         )
     }
 

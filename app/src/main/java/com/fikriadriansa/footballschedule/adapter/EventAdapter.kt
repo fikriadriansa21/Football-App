@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.fikriadriansa.footballschedule.R
+import com.fikriadriansa.footballschedule.fragments.NextMatchFragment
 import com.fikriadriansa.footballschedule.model.Event
+import kotlinx.android.extensions.LayoutContainer
 
 
 class EventAdapter(private val events: List<Event>, private val clickListener: (Event) -> Unit) :RecyclerView.Adapter<EventViewHolder>(){
@@ -30,21 +32,21 @@ class EventAdapter(private val events: List<Event>, private val clickListener: (
 
 }
 
-class EventViewHolder(view: View): RecyclerView.ViewHolder(view){
-    private val dateEvent: TextView = view.findViewById(R.id.tv_date)
-    private val homeTeamName: TextView = view.findViewById(R.id.tv_home_team)
-    private val awayTeamName: TextView = view.findViewById(R.id.tv_away_team)
-    private val homeScore: TextView = view.findViewById(R.id.tv_score_home)
-    private val awayScore: TextView = view.findViewById(R.id.tv_score_away)
+class EventViewHolder(override val containerView: View): RecyclerView.ViewHolder(containerView),LayoutContainer{
+    private val dateEvent: TextView = containerView.findViewById(R.id.tv_date)
+    private val homeTeamName: TextView = containerView.findViewById(R.id.tv_home_team)
+    private val awayTeamName: TextView = containerView.findViewById(R.id.tv_away_team)
+    private val homeScore: TextView = containerView.findViewById(R.id.tv_score_home)
+    private val awayScore: TextView = containerView.findViewById(R.id.tv_score_away)
 
 
-    fun bindItems(events: Event,clickListener:(Event)->Unit){
+    fun bindItems(events: Event, clickListener: (Event) -> Unit){
         dateEvent.text = events.strDate
         homeTeamName.text = events.strHomeTeam
         awayTeamName.text = events.strAwayTeam
         homeScore.text = events.intHomeScore
         awayScore.text = events.intAwayScore
-        itemView.setOnClickListener {
+        containerView.setOnClickListener {
             clickListener(events)
         }
     }

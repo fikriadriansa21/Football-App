@@ -12,6 +12,7 @@ import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.invisible
 import com.fikriadriansa.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.MainPresenter
 import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.visible
@@ -50,6 +51,7 @@ class LastMatchFragment : Fragment(), MainView {
         adapterLastMatch.notifyDataSetChanged()
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -77,7 +79,7 @@ class LastMatchFragment : Fragment(), MainView {
 
     private fun partItemClicked(events: Event) {
         startActivity<MatchDetailActivity>(
-            "date" to events.dateEvent
+            "data" to events
         )
     }
 

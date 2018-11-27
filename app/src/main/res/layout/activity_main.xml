@@ -21,30 +21,3 @@
 
 
 </LinearLayout>
-<!--<android.support.v4.widget.SwipeRefreshLayout-->
-<!--android:id="@+id/refreshLeague"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent">-->
-
-<!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-    <!--<Spinner-->
-            <!--android:id="@+id/spinnerLeague"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-    <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rvLeague"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/spinnerLeague"/>-->
-    <!--<ProgressBar-->
-            <!--android:id="@+id/progressLeague"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerHorizontal="true"/>-->
-<!--</RelativeLayout>-->
-
-<!--</android.support.v4.widget.SwipeRefreshLayout>-->
