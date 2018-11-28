@@ -12,7 +12,6 @@ import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.invisible
 import com.fikriadriansa.footballschedule.model.Event
-import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.MainPresenter
 import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.visible
@@ -64,7 +63,7 @@ class LastMatchFragment : Fragment(), MainView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapterLastMatch = EventAdapter(events,{events:Event->partItemClicked(events)})
+        adapterLastMatch = EventAdapter(events) { events:Event->partItemClicked(events)}
         rvEvent.adapter = adapterLastMatch
 
         val request = ApiRepository()

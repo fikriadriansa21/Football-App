@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.fikriadriansa.footballschedule.R
-import com.fikriadriansa.footballschedule.fragments.NextMatchFragment
 import com.fikriadriansa.footballschedule.model.Event
 import kotlinx.android.extensions.LayoutContainer
 

@@ -2,9 +2,7 @@ package com.fikriadriansa.footballschedule.presenter
 
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
-import com.fikriadriansa.footballschedule.model.EventResponse
 import com.fikriadriansa.footballschedule.model.TeamDetailResponse
-import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
