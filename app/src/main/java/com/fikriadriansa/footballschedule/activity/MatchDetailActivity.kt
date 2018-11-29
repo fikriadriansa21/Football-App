@@ -143,7 +143,20 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
                     Favorite.TEAM_HOME_NAME to getDataEvent.strHomeTeam,
                     Favorite.TEAM_AWAY_NAME to getDataEvent.strAwayTeam,
                     Favorite.TEAM_HOME_SCORE to getDataEvent.intHomeScore,
-                    Favorite.TEAM_AWAY_SCORE to getDataEvent.intAwayScore
+                    Favorite.TEAM_AWAY_SCORE to getDataEvent.intAwayScore,
+                    Favorite.HOME_GOAL_DETAILS to getDataEvent.strHomeGoalDetails,
+                    Favorite.AWAY_GOAL_DETAILS to getDataEvent.strAwayGoalDetails,
+                    Favorite.HOME_LINEUP_GK to getDataEvent.strHomeLineupGoalkeeper,
+                    Favorite.AWAY_LINEUP_GK to getDataEvent.strAwayLineupGoalkeeper,
+                    Favorite.HOME_LINEUP_DEF to getDataEvent.strHomeLineupDefense,
+                    Favorite.AWAY_LINEUP_DEF to getDataEvent.strAwayLineupDefense,
+                    Favorite.HOME_LINEUP_MID to getDataEvent.strHomeLineupMidfield,
+                    Favorite.AWAY_LINEUP_MID to getDataEvent.strAwayLineupMidfield,
+                    Favorite.HOME_LINEUP_FWD to getDataEvent.strHomeLineupForward,
+                    Favorite.AWAY_LINEUP_FWD to getDataEvent.strAwayLineupForward,
+                    Favorite.HOME_LINEUP_SUB to getDataEvent.strHomeLineupSubstitutes,
+                    Favorite.AWAY_LINEUP_SUB to getDataEvent.strAwayLineupSubstitutes
+
                 )
             }
             Toast.makeText(this,"Added to favorite", Toast.LENGTH_SHORT).show()

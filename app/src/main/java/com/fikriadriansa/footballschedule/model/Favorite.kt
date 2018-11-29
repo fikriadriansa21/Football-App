@@ -12,12 +12,30 @@ data class Favorite (
     val teamHomeName: String?,
     val teamAwayName: String?,
     val teamHomeScore: String?,
-    val teamAwayScore: String?
+    val teamAwayScore: String?,
+    val strTeamBadge: String?,
+    val strHomeTeam: String?,
+    val strAwayTeam: String?,
+    val intHomeScore: String?,
+    val intAwayScore: String?,
+
+    val strHomeGoalDetails: String?,
+    val strAwayGoalDetails: String?,
+    val strHomeLineupGoalkeeper: String?,
+    val strAwayLineupGoalkeeper: String?,
+    val strHomeLineupDefense: String?,
+    val strAwayLineupDefense: String?,
+    val strHomeLineupMidfield: String?,
+    val strAwayLineupMidfield: String?,
+    val strHomeLineupForward: String?,
+    val strAwayLineupForward: String?,
+    val strHomeLineupSubstitutes: String?,
+    val strAwayLineupSubstitutes: String?
+
 ):Parcelable
 {
  companion object {
      const val TABLE_FAVORITE: String = "TABLE_FAVORITE"
-
      const val TEAM_HOME_ID: String = "TEAM_HOME_ID"
      const val TEAM_AWAY_ID: String = "TEAM_AWAY_ID"
      const val TEAM_HOME_NAME: String = "TEAM_HOME_NAME"
@@ -26,5 +44,19 @@ data class Favorite (
      const val TEAM_MATCH_EVENT_DATE: String = "TEAM_MATCH_EVENT_DATE"
      const val TEAM_HOME_SCORE: String = "TEAM_HOME_SCORE"
      const val TEAM_AWAY_SCORE: String = "TEAM_AWAY_SCORE"
+
+     const val HOME_GOAL_DETAILS: String = "HOME_GOAL_DETAILS"
+     const val AWAY_GOAL_DETAILS: String = "AWAY_GOAL_DETAILS"
+     const val HOME_LINEUP_GK: String = "HOME_LINEUP_GK"
+     const val AWAY_LINEUP_GK: String = "AWAY_LINEUP_GK"
+     const val HOME_LINEUP_DEF: String = "HOME_LINEUP_DEF"
+     const val AWAY_LINEUP_DEF: String = "AWAY_LINEUP_DEF"
+     const val HOME_LINEUP_MID: String = "HOME_LINEUP_MID"
+     const val AWAY_LINEUP_MID: String = "AWAY_LINEUP_MID"
+     const val HOME_LINEUP_FWD: String = "HOME_LINEUP_FWD"
+     const val AWAY_LINEUP_FWD: String = "AWAY_LINEUP_FWD"
+     const val HOME_LINEUP_SUB: String = "HOME_LINEUP_SUB"
+     const val AWAY_LINEUP_SUB: String = "AWAY_LINEUP_SUB"
+
  }
 }
