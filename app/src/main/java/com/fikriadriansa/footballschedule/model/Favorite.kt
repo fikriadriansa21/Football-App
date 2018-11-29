@@ -1,5 +1,9 @@
 package com.fikriadriansa.footballschedule.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Favorite (
     val teamMatchEventId:String?,
     val teamMatchEventDate: String?,
@@ -9,7 +13,8 @@ data class Favorite (
     val teamAwayName: String?,
     val teamHomeScore: String?,
     val teamAwayScore: String?
-){
+):Parcelable
+{
  companion object {
      const val TABLE_FAVORITE: String = "TABLE_FAVORITE"
 

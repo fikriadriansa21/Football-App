@@ -41,4 +41,6 @@ class TeamDetailPresenter(private val view: TeamDetailView,
             }
         }
     }
+
+
 }

@@ -33,11 +33,9 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
     private lateinit var presenter: TeamDetailPresenter
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
-    private lateinit var idEvents: String
 
     companion object {
         lateinit var getDataEvent: Event
-        lateinit var getDataFav: Favorite
     }
 
 

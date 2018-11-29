@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.fikriadriansa.footballschedule.R
-import com.fikriadriansa.footballschedule.R.string.*
-import com.fikriadriansa.footballschedule.adapter.EventPagerAdapter
 import com.fikriadriansa.footballschedule.fragments.FavoriteFragment
 import com.fikriadriansa.footballschedule.fragments.LastMatchFragment
 import com.fikriadriansa.footballschedule.fragments.NextMatchFragment
