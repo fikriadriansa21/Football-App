@@ -32,7 +32,6 @@ class FavoriteDetailActivity : AppCompatActivity(),MainView,TeamDetailView {
 
     companion object {
         lateinit var getDataFav: Favorite
-        lateinit var getDataEvent: Event
     }
 
     override fun showLoading() {
@@ -44,25 +43,25 @@ class FavoriteDetailActivity : AppCompatActivity(),MainView,TeamDetailView {
     }
 
     override fun showListMatch(data: List<Event>) {
-        eventList.clear()
-        eventList.addAll(data)
-        tv_date_detail.text = data[0].dateEvent
-        tv_score_home_detail.text = data[0].intHomeScore
-        tv_goals_detail_home.text = data[0].strHomeGoalDetails.toString().replace(";","\n")
-        tv_home_gk.text = data[0].strHomeLineupGoalkeeper.toString().replace(";","\n")
-        tv_home_def.text = data[0].strHomeLineupDefense.toString().replace(";","\n")
-        tv_home_mid.text = data[0].strHomeLineupMidfield.toString().replace(";","\n")
-        tv_home_fwd.text = data[0].strHomeLineupForward.toString().replace(";","\n")
-        tv_home_sub.text = data[0].strHomeLineupSubstitutes.toString().replace(";","\n")
-
-
-        tv_score_away_detail.text = data[0].intAwayScore
-        tv_goals_detail_away.text = data[0].strAwayGoalDetails.toString().replace(";","\n")
-        tv_away_gk.text = data[0].strAwayLineupGoalkeeper.toString().replace(";","\n")
-        tv_away_def.text = data[0].strAwayLineupDefense.toString().replace(";","\n")
-        tv_away_mid.text = data[0].strAwayLineupMidfield.toString().replace(";","\n")
-        tv_away_fwd.text = data[0].strAwayLineupForward.toString().replace(";","\n")
-        tv_away_sub.text = data[0].strAwayLineupSubstitutes.toString().replace(";","\n")
+//        eventList.clear()
+//        eventList.addAll(data)
+//        tv_date_detail.text = data[0].dateEvent
+//        tv_score_home_detail.text = data[0].intHomeScore
+//        tv_goals_detail_home.text = data[0].strHomeGoalDetails.toString().replace(";","\n")
+//        tv_home_gk.text = data[0].strHomeLineupGoalkeeper.toString().replace(";","\n")
+//        tv_home_def.text = data[0].strHomeLineupDefense.toString().replace(";","\n")
+//        tv_home_mid.text = data[0].strHomeLineupMidfield.toString().replace(";","\n")
+//        tv_home_fwd.text = data[0].strHomeLineupForward.toString().replace(";","\n")
+//        tv_home_sub.text = data[0].strHomeLineupSubstitutes.toString().replace(";","\n")
+//
+//
+//        tv_score_away_detail.text = data[0].intAwayScore
+//        tv_goals_detail_away.text = data[0].strAwayGoalDetails.toString().replace(";","\n")
+//        tv_away_gk.text = data[0].strAwayLineupGoalkeeper.toString().replace(";","\n")
+//        tv_away_def.text = data[0].strAwayLineupDefense.toString().replace(";","\n")
+//        tv_away_mid.text = data[0].strAwayLineupMidfield.toString().replace(";","\n")
+//        tv_away_fwd.text = data[0].strAwayLineupForward.toString().replace(";","\n")
+//        tv_away_sub.text = data[0].strAwayLineupSubstitutes.toString().replace(";","\n")
     }
 
     override fun showDetailHomeMatch(data: List<TeamDetail>) {
@@ -71,15 +70,13 @@ class FavoriteDetailActivity : AppCompatActivity(),MainView,TeamDetailView {
 
         Picasso.get().load(data[0].strTeamBadge).into(img_home_team)
         tv_team_home_detail.text = data[0].strTeam
-
-//        tv_score_away_detail.text = getDataEvent.intAwayScore
-//        tv_goals_detail_away.text = getDataEvent.strAwayGoalDetails.toString().replace(";","\n")
-//        tv_away_gk.text = getDataEvent.strAwayLineupGoalkeeper.toString().replace(";","\n")
-//        tv_away_def.text = getDataEvent.strAwayLineupDefense.toString().replace(";","\n")
-//        tv_away_mid.text = getDataEvent.strAwayLineupMidfield.toString().replace(";","\n")
-//        tv_away_fwd.text = getDataEvent.strAwayLineupForward.toString().replace(";","\n")
-//        tv_away_sub.text = getDataEvent.strAwayLineupSubstitutes.toString().replace(";","\n")
-
+        tv_score_home_detail.text = getDataFav.teamHomeScore
+        tv_goals_detail_home.text = getDataFav.strHomeGoalDetails.toString().replace(";","\n")
+        tv_home_gk.text = getDataFav.strHomeLineupGoalkeeper.toString().replace(";","\n")
+        tv_home_def.text = getDataFav.strHomeLineupDefense.toString().replace(";","\n")
+        tv_home_mid.text = getDataFav.strHomeLineupMidfield.toString().replace(";","\n")
+        tv_home_fwd.text = getDataFav.strHomeLineupForward.toString().replace(";","\n")
+        tv_home_sub.text = getDataFav.strHomeLineupSubstitutes.toString().replace(";","\n")
     }
 
     override fun showDetailAwayMatch(data: List<TeamDetail>) {
@@ -88,14 +85,13 @@ class FavoriteDetailActivity : AppCompatActivity(),MainView,TeamDetailView {
 
         Picasso.get().load(data[0].strTeamBadge).into(img_away_team)
         tv_team_away_detail.text = data[0].strTeam
-//        tv_date_detail.text = getDataEvent.dateEvent
-//        tv_score_home_detail.text = getDataEvent.intHomeScore
-//        tv_goals_detail_home.text = getDataEvent.strHomeGoalDetails.toString().replace(";","\n")
-//        tv_home_gk.text = getDataEvent.strHomeLineupGoalkeeper.toString().replace(";","\n")
-//        tv_home_def.text = getDataEvent.strHomeLineupDefense.toString().replace(";","\n")
-//        tv_home_mid.text = getDataEvent.strHomeLineupMidfield.toString().replace(";","\n")
-//        tv_home_fwd.text = getDataEvent.strHomeLineupForward.toString().replace(";","\n")
-//        tv_home_sub.text = getDataEvent.strHomeLineupSubstitutes.toString().replace(";","\n")
+        tv_score_away_detail.text = getDataFav.teamAwayScore
+        tv_goals_detail_away.text = getDataFav.strAwayGoalDetails.toString().replace(";","\n")
+        tv_away_gk.text = getDataFav.strAwayLineupGoalkeeper.toString().replace(";","\n")
+        tv_away_def.text = getDataFav.strAwayLineupDefense.toString().replace(";","\n")
+        tv_away_mid.text = getDataFav.strAwayLineupMidfield.toString().replace(";","\n")
+        tv_away_fwd.text = getDataFav.strAwayLineupForward.toString().replace(";","\n")
+        tv_away_sub.text = getDataFav.strAwayLineupSubstitutes.toString().replace(";","\n")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,7 +109,7 @@ class FavoriteDetailActivity : AppCompatActivity(),MainView,TeamDetailView {
         detailPresenter.getDetailTeamHome(getDataFav.teamHomeId)
         detailPresenter.getDetailTeamAway(getDataFav.teamAwayId)
 
-        mainPresenter = MainPresenter(this,request,gson)
+//        mainPresenter = MainPresenter(this,request,gson)
 //        mainPresenter.getListNextMatch()
 //        mainPresenter.getListLastMatch()
     }

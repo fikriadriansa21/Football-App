@@ -35,6 +35,7 @@ class FavoriteViewHolder(view: View):RecyclerView.ViewHolder(view) {
     private val awayScore: TextView = view.findViewById(R.id.tv_score_away)
 
 
+
     fun bindItems(favorite: Favorite, clickListener: (Favorite) -> Unit){
         dateEvent.text = favorite.teamMatchEventDate
         homeTeamName.text = favorite.teamHomeName

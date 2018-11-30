@@ -5,20 +5,15 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Favorite (
-    val teamMatchEventId:String?,
-    val teamMatchEventDate: String?,
-    val teamHomeId: String?,
-    val teamAwayId: String?,
-    val teamHomeName: String?,
-    val teamAwayName: String?,
-    val teamHomeScore: String?,
-    val teamAwayScore: String?,
-    val strTeamBadge: String?,
-    val strHomeTeam: String?,
-    val strAwayTeam: String?,
-    val intHomeScore: String?,
-    val intAwayScore: String?,
-
+    var teamMatchEventId:String?,
+    var teamMatchEventDate: String?,
+    var teamHomeId: String?,
+    var teamAwayId: String?,
+    var teamHomeName: String?,
+    var teamAwayName: String?,
+    var teamHomeScore: String?,
+    var teamAwayScore: String?,
+//    var strTeamBadge: String?,
     val strHomeGoalDetails: String?,
     val strAwayGoalDetails: String?,
     val strHomeLineupGoalkeeper: String?,
@@ -40,11 +35,11 @@ data class Favorite (
      const val TEAM_AWAY_ID: String = "TEAM_AWAY_ID"
      const val TEAM_HOME_NAME: String = "TEAM_HOME_NAME"
      const val TEAM_AWAY_NAME: String = "TEAM_AWAY_NAME"
+     const val TEAM_BADGE: String = "TEAM_BADGE"
      const val TEAM_MATCH_EVENT_ID: String = "TEAM_MATCH_EVENT_ID"
      const val TEAM_MATCH_EVENT_DATE: String = "TEAM_MATCH_EVENT_DATE"
      const val TEAM_HOME_SCORE: String = "TEAM_HOME_SCORE"
      const val TEAM_AWAY_SCORE: String = "TEAM_AWAY_SCORE"
-
      const val HOME_GOAL_DETAILS: String = "HOME_GOAL_DETAILS"
      const val AWAY_GOAL_DETAILS: String = "AWAY_GOAL_DETAILS"
      const val HOME_LINEUP_GK: String = "HOME_LINEUP_GK"
@@ -57,6 +52,5 @@ data class Favorite (
      const val AWAY_LINEUP_FWD: String = "AWAY_LINEUP_FWD"
      const val HOME_LINEUP_SUB: String = "HOME_LINEUP_SUB"
      const val AWAY_LINEUP_SUB: String = "AWAY_LINEUP_SUB"
-
  }
 }

@@ -16,7 +16,20 @@ class FootballDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(cont
             Favorite.TEAM_HOME_NAME to TEXT,
             Favorite.TEAM_AWAY_NAME to TEXT,
             Favorite.TEAM_HOME_SCORE to TEXT,
-            Favorite.TEAM_AWAY_SCORE to TEXT)
+            Favorite.TEAM_AWAY_SCORE to TEXT,
+            Favorite.HOME_GOAL_DETAILS to TEXT,
+            Favorite.AWAY_GOAL_DETAILS to TEXT,
+            Favorite.HOME_LINEUP_GK to TEXT,
+            Favorite.AWAY_LINEUP_GK to TEXT,
+            Favorite.HOME_LINEUP_DEF to TEXT,
+            Favorite.AWAY_LINEUP_DEF to TEXT,
+            Favorite.HOME_LINEUP_MID to TEXT,
+            Favorite.AWAY_LINEUP_MID to TEXT,
+            Favorite.HOME_LINEUP_FWD to TEXT,
+            Favorite.AWAY_LINEUP_FWD to TEXT,
+            Favorite.HOME_LINEUP_SUB to TEXT,
+            Favorite.AWAY_LINEUP_SUB to TEXT
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
