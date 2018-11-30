@@ -13,7 +13,6 @@ data class Favorite (
     var teamAwayName: String?,
     var teamHomeScore: String?,
     var teamAwayScore: String?,
-//    var strTeamBadge: String?,
     val strHomeGoalDetails: String?,
     val strAwayGoalDetails: String?,
     val strHomeLineupGoalkeeper: String?,
@@ -35,7 +34,6 @@ data class Favorite (
      const val TEAM_AWAY_ID: String = "TEAM_AWAY_ID"
      const val TEAM_HOME_NAME: String = "TEAM_HOME_NAME"
      const val TEAM_AWAY_NAME: String = "TEAM_AWAY_NAME"
-     const val TEAM_BADGE: String = "TEAM_BADGE"
      const val TEAM_MATCH_EVENT_ID: String = "TEAM_MATCH_EVENT_ID"
      const val TEAM_MATCH_EVENT_DATE: String = "TEAM_MATCH_EVENT_DATE"
      const val TEAM_HOME_SCORE: String = "TEAM_HOME_SCORE"

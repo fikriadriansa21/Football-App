@@ -44,6 +44,7 @@ class FavoriteDetailActivity : AppCompatActivity(),TeamDetailView {
 
         Picasso.get().load(data[0].strTeamBadge).into(img_home_team)
         tv_team_home_detail.text = data[0].strTeam
+        tv_date_detail.text = getDataFav.teamMatchEventDate
         tv_score_home_detail.text = getDataFav.teamHomeScore
         tv_goals_detail_home.text = getDataFav.strHomeGoalDetails.toString().replace(";","\n")
         tv_home_gk.text = getDataFav.strHomeLineupGoalkeeper.toString().replace(";","\n")
@@ -59,6 +60,7 @@ class FavoriteDetailActivity : AppCompatActivity(),TeamDetailView {
 
         Picasso.get().load(data[0].strTeamBadge).into(img_away_team)
         tv_team_away_detail.text = data[0].strTeam
+        tv_date_detail.text = getDataFav.teamMatchEventDate
         tv_score_away_detail.text = getDataFav.teamAwayScore
         tv_goals_detail_away.text = getDataFav.strAwayGoalDetails.toString().replace(";","\n")
         tv_away_gk.text = getDataFav.strAwayLineupGoalkeeper.toString().replace(";","\n")
