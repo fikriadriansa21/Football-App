@@ -1,4 +1,4 @@
-package com.fikriadriansa.footballschedule
+package com.fikriadriansa.footballschedule.utils
 
 import android.view.View
 

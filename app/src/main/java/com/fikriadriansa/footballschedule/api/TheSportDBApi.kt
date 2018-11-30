@@ -5,7 +5,9 @@ import com.fikriadriansa.footballschedule.BuildConfig
 
 object TheSportDBApi {
 
-    fun getLastMatch(): String {
+
+
+    fun getLastMatch(id: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -17,7 +19,7 @@ object TheSportDBApi {
             .toString()
     }
 
-    fun getNextMatch(): String {
+    fun getNextMatch(id: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")

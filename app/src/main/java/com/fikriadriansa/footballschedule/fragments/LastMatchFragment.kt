@@ -10,11 +10,11 @@ import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
 import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
-import com.fikriadriansa.footballschedule.invisible
+import com.fikriadriansa.footballschedule.utils.invisible
 import com.fikriadriansa.footballschedule.model.Event
 import com.fikriadriansa.footballschedule.presenter.MainPresenter
 import com.fikriadriansa.footballschedule.view.MainView
-import com.fikriadriansa.footballschedule.visible
+import com.fikriadriansa.footballschedule.utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
 import org.jetbrains.anko.support.v4.onRefresh
@@ -34,6 +34,7 @@ class LastMatchFragment : Fragment(), MainView {
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapterLastMatch: EventAdapter
+    private var id: String = "4328"
 
     override fun showLoading() {
         progress_match.visible()
@@ -70,9 +71,9 @@ class LastMatchFragment : Fragment(), MainView {
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
 
-        presenter.getListLastMatch()
+        presenter.getListLastMatch(id)
         swipe_event.onRefresh {
-            presenter.getListLastMatch()
+            presenter.getListLastMatch(id)
         }
     }
 
