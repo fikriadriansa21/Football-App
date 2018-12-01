@@ -12,12 +12,12 @@ import com.fikriadriansa.footballschedule.adapter.EventAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.utils.invisible
 import com.fikriadriansa.footballschedule.model.Event
-import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.MainPresenter
+import com.fikriadriansa.footballschedule.utils.CoroutineContextProvider
 import com.fikriadriansa.footballschedule.view.MainView
 import com.fikriadriansa.footballschedule.utils.visible
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_last_match.*
+import kotlinx.android.synthetic.main.fragment_event_match.*
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -34,10 +34,9 @@ class NextMatchFragment : Fragment(), MainView {
 
 
     private var events: MutableList<Event> = mutableListOf()
-    private var teamDetail: MutableList<TeamDetail> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapterNextMatch: EventAdapter
-    private var id: String = "4328"
+//    private val id: String = "4328"
 
     override fun showLoading() {
         progress_match.visible()
@@ -60,7 +59,7 @@ class NextMatchFragment : Fragment(), MainView {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_last_match, container, false)
+        return inflater.inflate(R.layout.fragment_event_match, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -73,11 +72,12 @@ class NextMatchFragment : Fragment(), MainView {
 
         val request = ApiRepository()
         val gson = Gson()
+//        val coroutine = CoroutineContextProvider()
         presenter = MainPresenter(this, request, gson)
 
-        presenter.getListNextMatch(id)
+        presenter.getListNextMatch()
         swipe_event.onRefresh {
-            presenter.getListNextMatch(id)
+            presenter.getListNextMatch()
         }
     }
 

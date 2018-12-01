@@ -3,44 +3,80 @@ package com.fikriadriansa.footballschedule.presenter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
 import com.fikriadriansa.footballschedule.model.TeamDetailResponse
+import com.fikriadriansa.footballschedule.utils.CoroutineContextProvider
 import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class TeamDetailPresenter(private val view: TeamDetailView,
                           private val apiRepository: ApiRepository,
-                          private val gson: Gson
+                          private val gson: Gson,
+                          private val context: CoroutineContextProvider = CoroutineContextProvider()
 )  {
+
     fun getDetailTeamHome(idEvent: String?) {
         view.showLoading()
-        doAsync {
+        GlobalScope.launch(context.main){
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+                .doRequest(TheSportDBApi.getDetailTeam(idEvent)).await(),
                 TeamDetailResponse::class.java
             )
 
-            uiThread {
-                view.hideLoading()
+
                 view.showDetailHomeMatch(data.teams)
-            }
+                view.hideLoading()
+
+
         }
     }
 
     fun getDetailTeamAway(idEvent: String?) {
         view.showLoading()
-        doAsync {
+        GlobalScope.launch(context.main){
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+                .doRequest(TheSportDBApi.getDetailTeam(idEvent)).await(),
                 TeamDetailResponse::class.java
             )
 
-            uiThread {
-                view.hideLoading()
+
                 view.showDetailAwayMatch(data.teams)
-            }
+                view.hideLoading()
+
         }
     }
+
+//    fun getDetailTeamHome(idEvent: String?) {
+//        view.showLoading()
+//        doAsync{
+//            val data = gson.fromJson(apiRepository
+//                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+//                TeamDetailResponse::class.java
+//            )
+//
+//            uiThread {
+//                view.hideLoading()
+//                view.showDetailHomeMatch(data.teams)
+//            }
+//
+//        }
+//    }
+//
+//    fun getDetailTeamAway(idEvent: String?) {
+//        view.showLoading()
+//        doAsync{
+//            val data = gson.fromJson(apiRepository
+//                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
+//                TeamDetailResponse::class.java
+//            )
+//
+//            uiThread {
+//                view.hideLoading()
+//                view.showDetailAwayMatch(data.teams)
+//            }
+//        }
+//    }
 
 
 }

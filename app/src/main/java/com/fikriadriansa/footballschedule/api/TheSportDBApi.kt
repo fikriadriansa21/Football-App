@@ -7,7 +7,7 @@ object TheSportDBApi {
 
 
 
-    fun getLastMatch(id: String?): String {
+    fun getLastMatch(): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -19,7 +19,7 @@ object TheSportDBApi {
             .toString()
     }
 
-    fun getNextMatch(id: String?): String {
+    fun getNextMatch(): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")

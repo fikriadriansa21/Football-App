@@ -8,8 +8,7 @@ import com.fikriadriansa.footballschedule.view.MainView
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+
 
 class MainPresenter(private val view: MainView,
                     private val apiRepository: ApiRepository,
@@ -18,34 +17,65 @@ class MainPresenter(private val view: MainView,
 ) {
 
 
-    fun getListLastMatch(id: String?) {
-        view.showLoading()
-
-        GlobalScope.launch(context.main) {
-            val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getLastMatch(id)),
-                EventResponse::class.java
-            )
-
-            view.hideLoading()
-            view.showListMatch(data.events)
-
-        }
-    }
-
-
-    fun getListNextMatch(id: String?) {
+    fun getListLastMatch() {
         view.showLoading()
         GlobalScope.launch(context.main) {
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getNextMatch(id)),
+                .doRequest(TheSportDBApi.getLastMatch()).await(),
                 EventResponse::class.java
             )
 
-                view.hideLoading()
+
                 view.showListMatch(data.events)
+                view.hideLoading()
+
         }
     }
 
 
+    fun getListNextMatch() {
+        view.showLoading()
+        GlobalScope.launch(context.main){
+            val data = gson.fromJson(apiRepository
+                .doRequest(TheSportDBApi.getNextMatch()).await(),
+                EventResponse::class.java
+            )
+
+                view.showListMatch(data.events)
+                view.hideLoading()
+
+        }
+    }
+
+
+
+//    fun getListLastMatch() {
+//        view.showLoading()
+//        doAsync {
+//            val data = gson.fromJson(apiRepository
+//                .doRequest(TheSportDBApi.getLastMatch()),
+//                EventResponse::class.java
+//            )
+//
+//            uiThread {
+//                view.hideLoading()
+//                view.showListMatch(data.events)
+//            }
+//        }
+//    }
+//
+//
+//    fun getListNextMatch() {
+//        view.showLoading()
+//        doAsync{
+//            val data = gson.fromJson(apiRepository
+//                .doRequest(TheSportDBApi.getNextMatch()),
+//                EventResponse::class.java
+//            )
+//            uiThread {
+//                view.hideLoading()
+//                view.showListMatch(data.events)
+//            }
+//        }
+//    }
 }

@@ -1,6 +1,5 @@
 package com.fikriadriansa.footballschedule.presenter
 
-import android.util.EventLog
 import com.fikriadriansa.footballschedule.TestContextProvider
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
@@ -37,18 +36,18 @@ class MainPresenterTest{
     }
 
     @Test
-    fun testGetLastMatch(id: String?){
+    fun testGetLastMatch(){
         val events: MutableList<Event> = mutableListOf()
         val response = EventResponse(events)
-        val id = "4328"
+
 
         GlobalScope.launch {
             `when`(gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getLastMatch(id)),
+                .doRequest(TheSportDBApi.getLastMatch()).await(),
                 EventResponse::class.java
             )).thenReturn(response)
 
-            presenter.getListLastMatch(id)
+            presenter.getListLastMatch()
 
             Mockito.verify(view).showLoading()
             Mockito.verify(view).showListMatch(events)
@@ -57,18 +56,18 @@ class MainPresenterTest{
     }
 
     @Test
-    fun testGetNextMatch(id: String?){
+    fun testGetNextMatch(){
         val events: MutableList<Event> = mutableListOf()
         val response = EventResponse(events)
-        val id = "4328"
+
 
         GlobalScope.launch {
             `when`(gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getNextMatch(id)),
+                .doRequest(TheSportDBApi.getNextMatch()).await(),
                 EventResponse::class.java
             )).thenReturn(response)
 
-            presenter.getListNextMatch(id)
+            presenter.getListNextMatch()
 
             Mockito.verify(view).showLoading()
             Mockito.verify(view).showListMatch(events)
