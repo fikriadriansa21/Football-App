@@ -46,36 +46,4 @@ class MainPresenter(private val view: MainView,
 
         }
     }
-
-
-
-//    fun getListLastMatch() {
-//        view.showLoading()
-//        doAsync {
-//            val data = gson.fromJson(apiRepository
-//                .doRequest(TheSportDBApi.getLastMatch()),
-//                EventResponse::class.java
-//            )
-//
-//            uiThread {
-//                view.hideLoading()
-//                view.showListMatch(data.events)
-//            }
-//        }
-//    }
-//
-//
-//    fun getListNextMatch() {
-//        view.showLoading()
-//        doAsync{
-//            val data = gson.fromJson(apiRepository
-//                .doRequest(TheSportDBApi.getNextMatch()),
-//                EventResponse::class.java
-//            )
-//            uiThread {
-//                view.hideLoading()
-//                view.showListMatch(data.events)
-//            }
-//        }
-//    }
 }

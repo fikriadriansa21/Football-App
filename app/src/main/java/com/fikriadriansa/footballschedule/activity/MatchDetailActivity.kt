@@ -36,6 +36,7 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
 
     companion object {
         lateinit var getDataEvent: Event
+        val DATA:String = "data"
     }
 
 
@@ -44,7 +45,13 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
         setContentView(R.layout.activity_event_detail)
         supportActionBar?.title = "Match Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        getDataEvent = intent.getParcelableExtra("data")
+        if( intent.extras != null)
+        {
+
+            getDataEvent = intent.getParcelableExtra(DATA)
+        }
+
+
 
         favoriteState()
         val request = ApiRepository()

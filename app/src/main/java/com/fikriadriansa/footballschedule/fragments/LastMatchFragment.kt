@@ -35,7 +35,7 @@ class LastMatchFragment : Fragment(), MainView {
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapterLastMatch: EventAdapter
-//    private val id: String = "4328"
+
 
     override fun showLoading() {
         progress_match.visible()
@@ -70,7 +70,6 @@ class LastMatchFragment : Fragment(), MainView {
 
         val request = ApiRepository()
         val gson = Gson()
-//        val coroutine = CoroutineContextProvider()
         presenter = MainPresenter(this, request, gson)
 
         presenter.getListLastMatch()
@@ -81,7 +80,7 @@ class LastMatchFragment : Fragment(), MainView {
 
     private fun partItemClicked(events: Event) {
         startActivity<MatchDetailActivity>(
-            "data" to events
+            MatchDetailActivity.DATA to events
         )
     }
 

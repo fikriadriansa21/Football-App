@@ -46,37 +46,6 @@ class TeamDetailPresenter(private val view: TeamDetailView,
 
         }
     }
-
-//    fun getDetailTeamHome(idEvent: String?) {
-//        view.showLoading()
-//        doAsync{
-//            val data = gson.fromJson(apiRepository
-//                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
-//                TeamDetailResponse::class.java
-//            )
-//
-//            uiThread {
-//                view.hideLoading()
-//                view.showDetailHomeMatch(data.teams)
-//            }
-//
-//        }
-//    }
-//
-//    fun getDetailTeamAway(idEvent: String?) {
-//        view.showLoading()
-//        doAsync{
-//            val data = gson.fromJson(apiRepository
-//                .doRequest(TheSportDBApi.getDetailTeam(idEvent)),
-//                TeamDetailResponse::class.java
-//            )
-//
-//            uiThread {
-//                view.hideLoading()
-//                view.showDetailAwayMatch(data.teams)
-//            }
-//        }
-//    }
+ }
 
 
-}

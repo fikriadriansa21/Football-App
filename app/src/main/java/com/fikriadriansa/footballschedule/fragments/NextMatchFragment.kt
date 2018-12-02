@@ -72,7 +72,6 @@ class NextMatchFragment : Fragment(), MainView {
 
         val request = ApiRepository()
         val gson = Gson()
-//        val coroutine = CoroutineContextProvider()
         presenter = MainPresenter(this, request, gson)
 
         presenter.getListNextMatch()
@@ -83,7 +82,7 @@ class NextMatchFragment : Fragment(), MainView {
 
     private fun partItemClicked(events: Event) {
         startActivity<MatchDetailActivity>(
-            "data" to events
+            MatchDetailActivity.DATA to events
 
         )
     }
