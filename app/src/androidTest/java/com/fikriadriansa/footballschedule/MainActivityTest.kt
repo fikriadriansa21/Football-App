@@ -10,40 +10,32 @@ import android.support.test.rule.ActivityTestRule
 import android.support.v7.widget.RecyclerView
 import com.fikriadriansa.footballschedule.R.id.*
 import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
+import com.fikriadriansa.footballschedule.main.MainActivity
 import org.junit.Rule
 import org.junit.Test
 
 class MainActivityTest {
     @Rule
     @JvmField
-    var activityRule = ActivityTestRule(MatchDetailActivity::class.java)
+    var activityRule = ActivityTestRule(MainActivity::class.java)
 
-    @Test
-    fun testListEvent(){
-        onView(withId(rvEvent)).check(matches(isDisplayed()))
-        onView(withId(rvEvent)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
-        onView(withId(rvEvent)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(10, click()))
-    }
 
     @Test
     fun testFavoriteEvent(){
+        Thread.sleep(2000)
+        onView(withId(bottom_navigation)).check(matches(isDisplayed()))
         onView(withId(rvEvent)).check(matches(isDisplayed()))
-        onView(withId(rvEvent)).perform(click())
-        onView(withText("Newcastle vs West Ham")).check(matches(isDisplayed()))
-        onView(withText("Newcastle vs West Ham")).perform(click())
+        onView(withText("Arsenal")).check(matches(isDisplayed()))
+        onView(withText("Arsenal")).perform(click())
         onView(withId(add_to_favorite)).check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
-        onView(withText("Added to favorite"))
-            .check(matches(isDisplayed()))
-        pressBack()
+        onView(isRoot()).perform(pressBack())
 
-        onView(withId(bottom_navigation))
-            .check(matches(isDisplayed()))
+        Thread.sleep(1000)
+        onView(withId(bottom_navigation)).check(matches(isDisplayed()))
         onView(withId(favorite)).perform(click())
-
-
-
+        Thread.sleep(1000)
+        onView(withId(rvFav)).check(matches(isDisplayed()))
     }
 
 }

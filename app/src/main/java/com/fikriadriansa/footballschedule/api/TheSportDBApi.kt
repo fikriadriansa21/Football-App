@@ -4,9 +4,6 @@ import android.net.Uri
 import com.fikriadriansa.footballschedule.BuildConfig
 
 object TheSportDBApi {
-
-
-
     fun getLastMatch(): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")

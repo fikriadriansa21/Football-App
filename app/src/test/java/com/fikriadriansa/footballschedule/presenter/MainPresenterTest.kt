@@ -32,7 +32,7 @@ class MainPresenterTest{
     @Before
     fun setUp(){
         MockitoAnnotations.initMocks(this)
-        presenter = MainPresenter(view, apiRepository, gson, TestContextProvider())
+        presenter = MainPresenter(view, apiRepository, gson)
     }
 
     @Test
