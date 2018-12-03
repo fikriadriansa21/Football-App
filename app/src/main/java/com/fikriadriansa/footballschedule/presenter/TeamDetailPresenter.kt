@@ -3,9 +3,11 @@ package com.fikriadriansa.footballschedule.presenter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
 import com.fikriadriansa.footballschedule.model.TeamDetailResponse
+import com.fikriadriansa.footballschedule.model.TeamResponse
 import com.fikriadriansa.footballschedule.utils.CoroutineContextProvider
 import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -45,6 +47,20 @@ class TeamDetailPresenter(private val view: TeamDetailView,
                 view.hideLoading()
 
         }
+    }
+
+    fun getTeamDetail(teamId: String) {
+        view.showLoading()
+
+        GlobalScope.launch(Dispatchers.Main){
+            val data =gson.fromJson(apiRepository
+                .doRequest(TheSportDBApi.getTeamDetail(teamId)).await(),
+                TeamResponse::class.java
+            )
+            view.showTeamDetail(data.teams)
+            view.hideLoading()
+        }
+
     }
  }
 

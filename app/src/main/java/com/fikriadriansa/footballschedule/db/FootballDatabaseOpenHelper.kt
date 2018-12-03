@@ -30,6 +30,12 @@ class FootballDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(cont
             Favorite.HOME_LINEUP_SUB to TEXT,
             Favorite.AWAY_LINEUP_SUB to TEXT
         )
+
+        db.createTable(Favorite.TABLE_FAVORITE, true,
+            Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            Favorite.TEAM_ID to TEXT + UNIQUE,
+            Favorite.TEAM_NAME to TEXT,
+            Favorite.TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

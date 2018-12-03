@@ -16,6 +16,7 @@ import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.model.Favorite
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Event
+import com.fikriadriansa.footballschedule.model.Team
 import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.TeamDetailPresenter
 import com.fikriadriansa.footballschedule.view.TeamDetailView
@@ -98,6 +99,10 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
         tv_away_mid.text = getDataEvent.strAwayLineupMidfield.toString().replace(";","\n")
         tv_away_fwd.text = getDataEvent.strAwayLineupForward.toString().replace(";","\n")
         tv_away_sub.text = getDataEvent.strAwayLineupSubstitutes.toString().replace(";","\n")
+    }
+
+    override fun showTeamDetail(data: List<Team>) {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

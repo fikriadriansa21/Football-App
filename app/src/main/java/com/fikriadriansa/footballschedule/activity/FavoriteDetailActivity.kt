@@ -11,6 +11,7 @@ import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Favorite
+import com.fikriadriansa.footballschedule.model.Team
 import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.TeamDetailPresenter
 import com.fikriadriansa.footballschedule.view.TeamDetailView
@@ -20,6 +21,10 @@ import kotlinx.android.synthetic.main.activity_event_detail.*
 import org.jetbrains.anko.db.delete
 
 class FavoriteDetailActivity : AppCompatActivity(),TeamDetailView {
+    override fun showTeamDetail(data: List<Team>) {
+
+    }
+
     private var detailTeam: MutableList<TeamDetail> = mutableListOf()
     private lateinit var detailPresenter: TeamDetailPresenter
     private var menuItem: Menu? = null

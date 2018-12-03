@@ -15,6 +15,12 @@
             android:icon="@drawable/ic_events"
             app:showAsAction="ifRoom"/>
     <item
+            android:id="@+id/team"
+            android:enabled="true"
+            android:title="@string/Team"
+            android:icon="@drawable/soccer_jersey"
+            app:showAsAction="ifRoom"/>
+    <item
             android:id="@+id/favorite"
             android:enabled="true"
             android:icon="@drawable/ic_fav"

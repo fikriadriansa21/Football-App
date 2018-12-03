@@ -1,4 +1,4 @@
 package com.fikriadriansa.footballschedule.model
 
-class TeamResponse {
-}
+data class TeamResponse(
+    val teams: List<Team>)

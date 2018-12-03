@@ -7,6 +7,7 @@ import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.fragments.FavoriteFragment
 import com.fikriadriansa.footballschedule.fragments.LastMatchFragment
 import com.fikriadriansa.footballschedule.fragments.NextMatchFragment
+import com.fikriadriansa.footballschedule.fragments.TeamFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.next_match -> {
                     loadNextMatchFragment(savedInstanceState)
                 }
+                R.id.team -> {
+                    loadTeamFragment(savedInstanceState)
+                }
                 R.id.favorite -> {
                     loadFavoritesFragment(savedInstanceState)
                 }
@@ -33,6 +37,15 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+    }
+
+    private fun loadTeamFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_container, TeamFragment(), TeamFragment::class.java.simpleName)
+                .commit()
+        }
     }
 
     private fun loadLastMatchFragment(savedInstanceState: Bundle?) {

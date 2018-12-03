@@ -3,4 +3,13 @@
     <string name="last_match">Last Match</string>
     <string name="next_match">Next Match</string>
     <string name="favorite">Favorite</string>
+    <string name="Team">team</string>
+    <array name="league">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
 </resources>
