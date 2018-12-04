@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:padding="35dp"
             android:orientation="vertical"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorBlueDark">
         
         <ImageView
                 android:id="@+id/img_team_detail"
@@ -23,6 +23,8 @@
                 android:id="@+id/tv_name_team_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:text="Manchester United"
                 android:textAlignment="center"/>
         <TextView
@@ -30,11 +32,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1887"
+                android:textColor="@color/colorWhite"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textAlignment="center"/>
         <TextView
                 android:id="@+id/tv_main_stadium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:text="Old Trafford"
                 android:textAlignment="center"/>
     </LinearLayout>

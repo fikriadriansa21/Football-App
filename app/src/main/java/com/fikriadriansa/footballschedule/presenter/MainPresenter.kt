@@ -17,32 +17,31 @@ class MainPresenter(private val view: MainView,
 ) {
 
 
-    fun getListLastMatch() {
+    fun getListLastMatch(leagueId: String?) {
         view.showLoading()
         GlobalScope.launch(context.main) {
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getLastMatch()).await(),
+                .doRequest(TheSportDBApi.getLastMatch(leagueId!!)).await(),
                 EventResponse::class.java
             )
 
-
-                view.showListMatch(data.events)
-                view.hideLoading()
+            view.showListMatch(data.events)
+            view.hideLoading()
 
         }
     }
 
 
-    fun getListNextMatch() {
+    fun getListNextMatch(leagueId: String?) {
         view.showLoading()
         GlobalScope.launch(context.main){
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getNextMatch()).await(),
+                .doRequest(TheSportDBApi.getNextMatch(leagueId!!)).await(),
                 EventResponse::class.java
             )
 
-                view.showListMatch(data.events)
-                view.hideLoading()
+            view.showListMatch(data.events)
+            view.hideLoading()
 
         }
     }

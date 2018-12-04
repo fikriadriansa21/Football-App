@@ -15,23 +15,6 @@
             android:layout_above="@+id/bottom_layout"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-        <!--<android.support.v4.view.ViewPager-->
-                <!--android:id="@+id/view_pager_event"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-
-            <!--<android.support.design.widget.TabLayout-->
-                    <!--android:id="@+id/tab_event"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"/>-->
-
-        <!--</android.support.v4.view.ViewPager>-->
-
-    <!--</RelativeLayout>-->
     <LinearLayout
             android:id="@+id/bottom_layout"
             android:layout_width="match_parent"

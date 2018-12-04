@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.view.Menu
 import android.view.MenuItem
 import com.fikriadriansa.footballschedule.R
+import com.fikriadriansa.footballschedule.adapter.TeamPagerAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Favorite
@@ -19,6 +20,7 @@ import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_team_detail.*
+import kotlinx.android.synthetic.main.fragment_main_detail_team.*
 import kotlinx.android.synthetic.main.fragment_team.*
 import kotlinx.android.synthetic.main.item_team.*
 import org.jetbrains.anko.db.classParser
@@ -36,6 +38,7 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     private var isFavorite: Boolean = false
     private lateinit var id: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_detail)
@@ -44,6 +47,9 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         id = intent.getStringExtra("id")
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        view_pager_team_detail.adapter = TeamPagerAdapter(supportFragmentManager)
+        tab_detail_team.setupWithViewPager(view_pager_team_detail)
 
         favoriteState()
         val request = ApiRepository()

@@ -4,26 +4,26 @@ import android.net.Uri
 import com.fikriadriansa.footballschedule.BuildConfig
 
 object TheSportDBApi {
-    fun getLastMatch(): String {
+    fun getLastMatch(leagueId: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
             .appendPath("json")
             .appendPath(BuildConfig.TSDB_API_KEY)
             .appendPath("eventspastleague.php")
-            .appendQueryParameter("id", "4328")
+            .appendQueryParameter("id", leagueId)
             .build()
             .toString()
     }
 
-    fun getNextMatch(): String {
+    fun getNextMatch(leagueId: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
             .appendPath("json")
             .appendPath(BuildConfig.TSDB_API_KEY)
             .appendPath("eventsnextleague.php")
-            .appendQueryParameter("id", "4328")
+            .appendQueryParameter("id", leagueId)
             .build()
             .toString()
     }
@@ -59,6 +59,18 @@ object TheSportDBApi {
             .appendPath(BuildConfig.TSDB_API_KEY)
             .appendPath("lookupteam.php")
             .appendQueryParameter("id", teamId)
+            .build()
+            .toString()
+    }
+
+    fun getPlayer(teamName: String?): String{
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath("api")
+            .appendPath("v1")
+            .appendPath("json")
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("searchplayers.php")
+            .appendQueryParameter("t", teamName)
             .build()
             .toString()
     }

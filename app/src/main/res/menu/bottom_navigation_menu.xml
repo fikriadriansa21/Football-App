@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!--<item-->
-            <!--android:id="@+id/last_match"-->
-            <!--android:enabled="true"-->
-            <!--android:title="@string/last_match"-->
-            <!--android:icon="@drawable/ic_events"-->
-            <!--app:showAsAction="ifRoom"/>-->
 
     <item
             android:id="@+id/event"
@@ -15,12 +9,6 @@
             android:icon="@drawable/ic_events"
             app:showAsAction="ifRoom"/>
 
-    <!--<item-->
-            <!--android:id="@+id/next_match"-->
-            <!--android:enabled="true"-->
-            <!--android:title="@string/next_match"-->
-            <!--android:icon="@drawable/ic_events"-->
-            <!--app:showAsAction="ifRoom"/>-->
     <item
             android:id="@+id/team"
             android:enabled="true"

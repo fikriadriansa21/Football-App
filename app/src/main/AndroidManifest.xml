@@ -24,10 +24,6 @@
         </activity>
         <activity android:name=".activity.TeamDetailActivity">
         </activity>
-        <activity android:name=".activity.NavigationTeamActivity">
-        </activity>
-        <activity android:name=".activity.NavigationMainActivity">
-        </activity>
     </application>
 
 </manifest>
