@@ -21,6 +21,7 @@ import com.fikriadriansa.footballschedule.utils.visible
 import com.fikriadriansa.footballschedule.view.TeamView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
 // TODO: Rename parameter arguments, choose names that match
@@ -48,7 +49,7 @@ class TeamFragment : Fragment(),TeamView {
     }
 
     override fun showTeamList(data: List<Team>) {
-//        swipe_team.isRefreshing = false
+        swipe_team.isRefreshing = false
         teams.clear()
         teams.addAll(data)
         adapter.notifyDataSetChanged()
@@ -61,8 +62,9 @@ class TeamFragment : Fragment(),TeamView {
         val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
         spinner_team.adapter = spinnerAdapter
 
-        adapter = TeamsAdapter(teams) {}
-//        { startActivity<TeamDetailActivity>("id" to "${it.teamId}") }
+        adapter = TeamsAdapter(teams) {
+            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}")
+        }
         rvTeam.adapter = adapter
 
         val request = ApiRepository()

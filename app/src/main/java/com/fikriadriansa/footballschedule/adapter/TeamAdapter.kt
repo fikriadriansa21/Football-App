@@ -1,5 +1,4 @@
 package com.fikriadriansa.footballschedule.adapter
-
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.widget.TextView
 import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.model.Team
 import com.squareup.picasso.Picasso
-import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 
 class TeamsAdapter(private val teams: List<Team>, private val listener: (Team) -> Unit)

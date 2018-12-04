@@ -25,12 +25,8 @@ class TeamDetailPresenter(private val view: TeamDetailView,
                 .doRequest(TheSportDBApi.getDetailTeam(idEvent)).await(),
                 TeamDetailResponse::class.java
             )
-
-
-                view.showDetailHomeMatch(data.teams)
-                view.hideLoading()
-
-
+            view.showDetailHomeMatch(data.teams)
+            view.hideLoading()
         }
     }
 
@@ -41,17 +37,13 @@ class TeamDetailPresenter(private val view: TeamDetailView,
                 .doRequest(TheSportDBApi.getDetailTeam(idEvent)).await(),
                 TeamDetailResponse::class.java
             )
-
-
                 view.showDetailAwayMatch(data.teams)
                 view.hideLoading()
-
         }
     }
 
-    fun getTeamDetail(teamId: String) {
+    fun getTeamDetail(teamId: String?) {
         view.showLoading()
-
         GlobalScope.launch(Dispatchers.Main){
             val data =gson.fromJson(apiRepository
                 .doRequest(TheSportDBApi.getTeamDetail(teamId)).await(),

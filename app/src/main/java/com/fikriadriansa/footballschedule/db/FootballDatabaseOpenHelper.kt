@@ -31,9 +31,9 @@ class FootballDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(cont
             Favorite.AWAY_LINEUP_SUB to TEXT
         )
 
-        db.createTable(Favorite.TABLE_FAVORITE, true,
+        db.createTable(Favorite.TABLE_TEAM_FAVORITE, true,
             Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            Favorite.TEAM_ID to TEXT + UNIQUE,
+            Favorite.TEAM_ID to TEXT,
             Favorite.TEAM_NAME to TEXT,
             Favorite.TEAM_BADGE to TEXT)
     }
