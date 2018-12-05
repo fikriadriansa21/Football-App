@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Favorite (
+
     var teamMatchEventId:String?,
     var teamMatchEventDate: String?,
     var teamHomeId: String?,
@@ -24,20 +25,11 @@ data class Favorite (
     val strHomeLineupForward: String?,
     val strAwayLineupForward: String?,
     val strHomeLineupSubstitutes: String?,
-    val strAwayLineupSubstitutes: String?,
-    val id: Long?,
-    val teamId: String?,
-    val teamName: String?,
-    val teamBadge: String?
-
+    val strAwayLineupSubstitutes: String?
 ):Parcelable
 {
  companion object {
      const val TABLE_FAVORITE: String = "TABLE_FAVORITE"
-     const val ID: String = "ID_"
-     const val TEAM_ID: String = "TEAM_ID"
-     const val TEAM_NAME: String = "TEAM_NAME"
-     const val TEAM_BADGE: String = "TEAM_BADGE"
      const val TEAM_HOME_ID: String = "TEAM_HOME_ID"
      const val TEAM_AWAY_ID: String = "TEAM_AWAY_ID"
      const val TEAM_HOME_NAME: String = "TEAM_HOME_NAME"
@@ -58,7 +50,7 @@ data class Favorite (
      const val AWAY_LINEUP_FWD: String = "AWAY_LINEUP_FWD"
      const val HOME_LINEUP_SUB: String = "HOME_LINEUP_SUB"
      const val AWAY_LINEUP_SUB: String = "AWAY_LINEUP_SUB"
-     const val TABLE_TEAM_FAVORITE: String = "TABLE_TEAM_FAVORITE"
+
 
 
  }

@@ -37,7 +37,7 @@ class MatchDetailActivity : AppCompatActivity(), TeamDetailView{
 
     companion object {
         lateinit var getDataEvent: Event
-        val DATA:String = "data"
+        const val DATA:String = "data"
     }
 
 

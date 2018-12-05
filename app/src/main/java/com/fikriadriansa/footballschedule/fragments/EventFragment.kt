@@ -34,7 +34,7 @@ class EventFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        childFragmentManager?.let { view_pager_event.adapter = EventPagerAdapter(it) }
+        childFragmentManager.let { view_pager_event.adapter = EventPagerAdapter(it) }
         tab_event.setupWithViewPager(view_pager_event)
     }
 

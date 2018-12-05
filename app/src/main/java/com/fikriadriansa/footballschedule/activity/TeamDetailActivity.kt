@@ -4,13 +4,16 @@ import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.adapter.TeamPagerAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Favorite
+import com.fikriadriansa.footballschedule.model.FavoriteTeam
 import com.fikriadriansa.footballschedule.model.Team
 import com.fikriadriansa.footballschedule.model.TeamDetail
 import com.fikriadriansa.footballschedule.presenter.TeamDetailPresenter
@@ -20,15 +23,10 @@ import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_team_detail.*
-import kotlinx.android.synthetic.main.fragment_main_detail_team.*
-import kotlinx.android.synthetic.main.fragment_team.*
-import kotlinx.android.synthetic.main.item_team.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
-import org.jetbrains.anko.design.snackbar
-import org.jetbrains.anko.support.v4.onRefresh
 
 class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
 
@@ -37,7 +35,8 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
     private lateinit var id: String
-
+    private lateinit var teamName: String
+    private lateinit var description: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +44,13 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
 
         val intent = intent
         id = intent.getStringExtra("id")
+        teamName = intent.getStringExtra("teamName")
+
+
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        view_pager_team_detail.adapter = TeamPagerAdapter(supportFragmentManager)
+        view_pager_team_detail.adapter = TeamPagerAdapter(supportFragmentManager, teamName)
         tab_detail_team.setupWithViewPager(view_pager_team_detail)
 
         favoriteState()
@@ -57,15 +59,11 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         presenter = TeamDetailPresenter(this, request, gson)
         presenter.getTeamDetail(id)
 
-//        swipe_team.onRefresh {
-//            presenter.getTeamDetail(id)
-//        }
-
     }
 
     private fun favoriteState(){
         database.use {
-            val result = select(Favorite.TABLE_TEAM_FAVORITE)
+            val result = select(FavoriteTeam.TABLE_TEAM_FAVORITE)
                 .whereArgs("(TEAM_ID = {id})",
                     "id" to id)
             val favorite = result.parseList(classParser<Favorite>())
@@ -74,18 +72,17 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     }
 
     override fun showLoading() {
-//        progress_team.visible()
+        progress_detail_team.visible()
     }
 
     override fun hideLoading() {
-//        progress_team.invisible()
+        progress_detail_team.invisible()
     }
 
     override fun showTeamDetail(data: List<Team>) {
         teams = Team(data[0].teamId,
             data[0].teamName,
             data[0].teamBadge)
-//        swipe_team.isRefreshing = false
         Picasso.get().load(data[0].teamBadge).into(img_team_detail)
         tv_name_team_detail.text = data[0].teamName
         tv_formed_year.text = data[0].teamFormedYear
@@ -128,26 +125,27 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     private fun addToFavorite(){
         try {
             database.use {
-                insert(Favorite.TABLE_TEAM_FAVORITE,
-                    Favorite.TEAM_ID to teams.teamId,
-                    Favorite.TEAM_NAME to teams.teamName,
-                    Favorite.TEAM_BADGE to teams.teamBadge)
+                insert(FavoriteTeam.TABLE_TEAM_FAVORITE,
+                    FavoriteTeam.TEAM_ID to teams.teamId,
+                    FavoriteTeam.TEAM_NAME to teams.teamName,
+                    FavoriteTeam.TEAM_BADGE to teams.teamBadge)
             }
-//            swipe_.snackbar("Added to favorite").show()
+            Toast.makeText(this,"Added to favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
-            swipe_team.snackbar(e.localizedMessage).show()
+            Toast.makeText(this,e.localizedMessage,Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun removeFromFavorite(){
         try {
             database.use {
-                delete(Favorite.TABLE_TEAM_FAVORITE, "(TEAM_ID = {id})",
+                delete(FavoriteTeam.TABLE_TEAM_FAVORITE, "(TEAM_ID = {id})",
                     "id" to id)
             }
-//            swipe_team.snackbar("Removed to favorite").show()
+            Toast.makeText(this,"Removed from favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
-//            swipe_team.snackbar(e.localizedMessage).show()
+            Toast.makeText(this,e.localizedMessage,Toast.LENGTH_SHORT).show()
+
         }
     }
 

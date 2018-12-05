@@ -10,6 +10,7 @@ import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.adapter.FavoriteTeamAdapter
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Favorite
+import com.fikriadriansa.footballschedule.model.FavoriteTeam
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_favorite_team.*
 import org.jetbrains.anko.db.classParser
@@ -26,7 +27,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class FavoriteTeamFragment : Fragment() {
 
-private var favorites: MutableList<Favorite> = mutableListOf()
+private var favorites: MutableList<FavoriteTeam> = mutableListOf()
     private lateinit var adapter: FavoriteTeamAdapter
 
 
@@ -64,8 +65,8 @@ private var favorites: MutableList<Favorite> = mutableListOf()
         favorites.clear()
         context?.database?.use {
 //            swipe_fav.isRefreshing = false
-            val result = select(Favorite.TABLE_TEAM_FAVORITE)
-            val favorite = result.parseList(classParser<Favorite>())
+            val result = select(FavoriteTeam.TABLE_TEAM_FAVORITE)
+            val favorite = result.parseList(classParser<FavoriteTeam>())
             favorites.addAll(favorite)
             adapter.notifyDataSetChanged()
         }

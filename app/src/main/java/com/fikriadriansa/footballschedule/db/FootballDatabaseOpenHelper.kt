@@ -3,6 +3,7 @@ package com.fikriadriansa.footballschedule.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.fikriadriansa.footballschedule.model.Favorite
+import com.fikriadriansa.footballschedule.model.FavoriteTeam
 import org.jetbrains.anko.db.*
 
 class FootballDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(context,"FavoriteTeam.db",null,1){
@@ -31,11 +32,12 @@ class FootballDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(cont
             Favorite.AWAY_LINEUP_SUB to TEXT
         )
 
-        db.createTable(Favorite.TABLE_TEAM_FAVORITE, true,
-            Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            Favorite.TEAM_ID to TEXT,
-            Favorite.TEAM_NAME to TEXT,
-            Favorite.TEAM_BADGE to TEXT)
+        db.createTable(
+            FavoriteTeam.TABLE_TEAM_FAVORITE, true,
+            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteTeam.TEAM_ID to TEXT,
+            FavoriteTeam.TEAM_NAME to TEXT,
+            FavoriteTeam.TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

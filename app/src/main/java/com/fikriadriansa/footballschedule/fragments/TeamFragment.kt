@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-
 import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.R.array.league
 import com.fikriadriansa.footballschedule.activity.TeamDetailActivity
@@ -63,8 +62,12 @@ class TeamFragment : Fragment(),TeamView {
         spinner_team.adapter = spinnerAdapter
 
         adapter = TeamsAdapter(teams) {
-            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}")
+            context?.startActivity<TeamDetailActivity>(
+                "id" to "${it.teamId}",
+                "teamName" to "${it.teamName}")
         }
+
+
         rvTeam.adapter = adapter
 
         val request = ApiRepository()

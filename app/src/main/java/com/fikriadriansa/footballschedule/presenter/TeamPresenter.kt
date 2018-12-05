@@ -23,7 +23,7 @@ class TeamsPresenter(private val view: TeamView,
                 TeamResponse::class.java
             )
             view.showTeamList(data.teams)
-            view.hideLoading()
+                view.hideLoading()
         }
     }
 

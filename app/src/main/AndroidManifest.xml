@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".activity.TeamDetailActivity">
         </activity>
+        <activity android:name=".activity.PlayerDetailActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -64,7 +64,7 @@ class FavoriteFragment : Fragment(){
         favorites.clear()
         context?.database?.use {
             swipe_fav.isRefreshing = false
-            val result = select(Favorite.TABLE_TEAM_FAVORITE)
+            val result = select(Favorite.TABLE_FAVORITE)
             val favorite = result.parseList(classParser<Favorite>())
             favorites.addAll(favorite)
             adapter.notifyDataSetChanged()

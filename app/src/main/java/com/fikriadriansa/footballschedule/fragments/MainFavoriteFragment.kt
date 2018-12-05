@@ -36,7 +36,7 @@ class MainFavoriteFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        childFragmentManager?.let { view_pager_main_fav.adapter = FavoriteTeamPagerAdapter(it) }
+        childFragmentManager.let { view_pager_main_fav.adapter = FavoriteTeamPagerAdapter(it) }
         tab_main_fav.setupWithViewPager(view_pager_main_fav)
     }
 

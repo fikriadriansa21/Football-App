@@ -21,9 +21,6 @@ import kotlinx.android.synthetic.main.activity_event_detail.*
 import org.jetbrains.anko.db.delete
 
 class FavoriteDetailActivity : AppCompatActivity(),TeamDetailView {
-    override fun showTeamDetail(data: List<Team>) {
-
-    }
 
     private var detailTeam: MutableList<TeamDetail> = mutableListOf()
     private lateinit var detailPresenter: TeamDetailPresenter
@@ -39,6 +36,10 @@ class FavoriteDetailActivity : AppCompatActivity(),TeamDetailView {
     }
 
     override fun hideLoading() {
+
+    }
+
+    override fun showTeamDetail(data: List<Team>) {
 
     }
 

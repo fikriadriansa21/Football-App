@@ -39,6 +39,7 @@ class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view){
     fun bindItem(teams: Team, listener: (Team) -> Unit) {
         Picasso.get().load(teams.teamBadge).into(teamBadge)
         teamName.text = teams.teamName
+
         itemView.setOnClickListener { listener(teams) }
     }
 }

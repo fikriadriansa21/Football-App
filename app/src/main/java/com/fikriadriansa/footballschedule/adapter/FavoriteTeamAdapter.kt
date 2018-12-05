@@ -8,10 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.fikriadriansa.footballschedule.R
 import com.fikriadriansa.footballschedule.model.Favorite
+import com.fikriadriansa.footballschedule.model.FavoriteTeam
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.find
 
-class FavoriteTeamAdapter(private val favorite: List<Favorite>, private val clickListener: (Favorite)->Unit)
+class FavoriteTeamAdapter(private val favorite: List<FavoriteTeam>, private val clickListener: (FavoriteTeam)->Unit)
     : RecyclerView.Adapter<FavoriteTeamViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTeamViewHolder{
@@ -37,7 +38,7 @@ class FavoriteTeamViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
 
-    fun bindItems(favorite: Favorite, clickListener: (Favorite) -> Unit){
+    fun bindItems(favorite: FavoriteTeam, clickListener: (FavoriteTeam) -> Unit){
         Picasso.get().load(favorite.teamBadge).into(teamBadge)
         teamName.text = favorite.teamName
         itemView.setOnClickListener { clickListener(favorite) }
