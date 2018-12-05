@@ -67,7 +67,8 @@ class TeamFragment : Fragment(),TeamView {
         adapter = TeamsAdapter(teams) {
             context?.startActivity<TeamDetailActivity>(
                 "id" to "${it.teamId}",
-                "teamName" to "${it.teamName}")
+                "teamName" to "${it.teamName}",
+                "description" to "${it.teamDescription}")
         }
 
 

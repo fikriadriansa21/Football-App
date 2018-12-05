@@ -23,6 +23,7 @@ import com.fikriadriansa.footballschedule.view.TeamDetailView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_team_detail.*
+import kotlinx.android.synthetic.main.fragment_team_overview.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
@@ -45,6 +46,7 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         val intent = intent
         id = intent.getStringExtra("id")
         teamName = intent.getStringExtra("teamName")
+        description = intent.getStringExtra("description")
 
 
         supportActionBar?.title = "Team Detail"
@@ -87,6 +89,7 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         tv_name_team_detail.text = data[0].teamName
         tv_formed_year.text = data[0].teamFormedYear
         tv_main_stadium.text = data[0].teamStadium
+        tv_overview.text = data[0].teamDescription
     }
 
     override fun showDetailHomeMatch(data: List<TeamDetail>) {
