@@ -35,6 +35,9 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class LastMatchFragment : Fragment(), MainView {
+    override fun showSearchMatch(data: List<Event>) {
+
+    }
 
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter

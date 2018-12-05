@@ -6,6 +6,7 @@
              android:layout_height="match_parent"
              android:layout_margin="8dp"
              tools:context="com.fikriadriansa.footballschedule.fragments.LastMatchFragment">
+
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

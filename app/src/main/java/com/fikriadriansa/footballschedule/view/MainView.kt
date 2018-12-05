@@ -6,5 +6,6 @@ interface MainView {
     fun showLoading()
     fun hideLoading()
     fun showListMatch(data: List<Event>)
+    fun showSearchMatch(data: List<Event>)
 
 }

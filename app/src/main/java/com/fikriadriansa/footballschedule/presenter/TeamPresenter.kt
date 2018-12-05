@@ -27,4 +27,17 @@ class TeamsPresenter(private val view: TeamView,
         }
     }
 
+    fun getSearchTeams(teamName: String?) {
+        view.showLoading()
+
+        GlobalScope.launch(Dispatchers.Main){
+            val data = gson.fromJson(apiRepository
+                .doRequest(TheSportDBApi.getSearchTeam(teamName)).await(),
+                TeamResponse::class.java
+            )
+            view.showTeamList(data.teams)
+                view.hideLoading()
+        }
+    }
+
 }

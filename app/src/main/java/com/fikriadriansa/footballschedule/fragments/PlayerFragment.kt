@@ -3,32 +3,23 @@ package com.fikriadriansa.footballschedule.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fikriadriansa.footballschedule.R
-import com.fikriadriansa.footballschedule.activity.MatchDetailActivity
 import com.fikriadriansa.footballschedule.activity.PlayerDetailActivity
-import com.fikriadriansa.footballschedule.activity.TeamDetailActivity
 import com.fikriadriansa.footballschedule.adapter.PlayerAdapter
-import com.fikriadriansa.footballschedule.adapter.TeamsAdapter
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.model.Player
-import com.fikriadriansa.footballschedule.model.Team
 import com.fikriadriansa.footballschedule.presenter.PlayerPresenter
 import com.fikriadriansa.footballschedule.utils.invisible
 import com.fikriadriansa.footballschedule.utils.visible
 import com.fikriadriansa.footballschedule.view.PlayerView
 import com.google.gson.Gson
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_team_detail.*
 import kotlinx.android.synthetic.main.fragment_player.*
-import kotlinx.android.synthetic.main.item_player.*
-import kotlinx.android.synthetic.main.item_team.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.startActivity
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

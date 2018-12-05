@@ -35,8 +35,6 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class NextMatchFragment : Fragment(), MainView {
-
-
     private var events: MutableList<Event> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapterNextMatch: EventAdapter
@@ -58,7 +56,9 @@ class NextMatchFragment : Fragment(), MainView {
         adapterNextMatch.notifyDataSetChanged()
     }
 
+    override fun showSearchMatch(data: List<Event>) {
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
