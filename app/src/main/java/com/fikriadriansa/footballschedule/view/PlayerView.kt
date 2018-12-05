@@ -1,6 +1,5 @@
 package com.fikriadriansa.footballschedule.view
 
-import com.fikriadriansa.footballschedule.model.Event
 import com.fikriadriansa.footballschedule.model.Player
 
 interface PlayerView {

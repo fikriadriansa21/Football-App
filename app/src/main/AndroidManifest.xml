@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".activity.PlayerDetailActivity">
         </activity>
+        <activity android:name=".activity.FavoriteTeamDetailActivity">
+        </activity>
     </application>
 
 </manifest>

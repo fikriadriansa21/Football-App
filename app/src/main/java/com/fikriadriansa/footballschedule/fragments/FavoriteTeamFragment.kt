@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fikriadriansa.footballschedule.R
+import com.fikriadriansa.footballschedule.activity.FavoriteTeamDetailActivity
+import com.fikriadriansa.footballschedule.activity.TeamDetailActivity
 import com.fikriadriansa.footballschedule.adapter.FavoriteTeamAdapter
 import com.fikriadriansa.footballschedule.db.database
 import com.fikriadriansa.footballschedule.model.Favorite
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_favorite_team.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
+import org.jetbrains.anko.startActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +37,11 @@ private var favorites: MutableList<FavoriteTeam> = mutableListOf()
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = FavoriteTeamAdapter(favorites) {}
+        adapter = FavoriteTeamAdapter(favorites) {
+            context?.startActivity<FavoriteTeamDetailActivity>(
+                "id" to "${it.teamId}",
+                "teamName" to "${it.teamName}")
+        }
 //        { favorite: Favorite ->partItemClicked(favorite)}
         rvFavTeam.adapter = adapter
         showFavorite()
@@ -64,7 +71,6 @@ private var favorites: MutableList<FavoriteTeam> = mutableListOf()
     private fun showFavorite(){
         favorites.clear()
         context?.database?.use {
-//            swipe_fav.isRefreshing = false
             val result = select(FavoriteTeam.TABLE_TEAM_FAVORITE)
             val favorite = result.parseList(classParser<FavoriteTeam>())
             favorites.addAll(favorite)

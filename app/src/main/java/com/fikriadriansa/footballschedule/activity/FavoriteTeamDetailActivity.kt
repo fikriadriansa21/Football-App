@@ -27,7 +27,7 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 
-class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
+class FavoriteTeamDetailActivity : AppCompatActivity(),TeamDetailView {
 
     private lateinit var teams: Team
     private lateinit var presenter: TeamDetailPresenter
@@ -36,7 +36,6 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     private lateinit var id: String
     private lateinit var teamName: String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_detail)
@@ -44,7 +43,6 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         val intent = intent
         id = intent.getStringExtra("id")
         teamName = intent.getStringExtra("teamName")
-
 
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -57,7 +55,6 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
         val gson = Gson()
         presenter = TeamDetailPresenter(this, request, gson)
         presenter.getTeamDetail(id)
-
     }
 
     private fun favoriteState(){
@@ -125,26 +122,28 @@ class TeamDetailActivity : AppCompatActivity(),TeamDetailView {
     private fun addToFavorite(){
         try {
             database.use {
-                insert(FavoriteTeam.TABLE_TEAM_FAVORITE,
+                insert(
+                    FavoriteTeam.TABLE_TEAM_FAVORITE,
                     FavoriteTeam.TEAM_ID to teams.teamId,
                     FavoriteTeam.TEAM_NAME to teams.teamName,
                     FavoriteTeam.TEAM_BADGE to teams.teamBadge)
             }
             Toast.makeText(this,"Added to favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
-            Toast.makeText(this,e.localizedMessage,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,e.localizedMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun removeFromFavorite(){
         try {
             database.use {
-                delete(FavoriteTeam.TABLE_TEAM_FAVORITE, "(TEAM_ID = {id})",
+                delete(
+                    FavoriteTeam.TABLE_TEAM_FAVORITE, "(TEAM_ID = {id})",
                     "id" to id)
             }
             Toast.makeText(this,"Removed from favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
-            Toast.makeText(this,e.localizedMessage,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,e.localizedMessage, Toast.LENGTH_SHORT).show()
 
         }
     }
