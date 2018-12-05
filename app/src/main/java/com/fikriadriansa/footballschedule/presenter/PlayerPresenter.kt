@@ -1,6 +1,6 @@
 package com.fikriadriansa.footballschedule.presenter
 
-import android.util.Log
+
 import com.fikriadriansa.footballschedule.api.ApiRepository
 import com.fikriadriansa.footballschedule.api.TheSportDBApi
 import com.fikriadriansa.footballschedule.model.PlayerResponse
