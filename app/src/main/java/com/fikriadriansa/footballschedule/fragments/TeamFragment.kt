@@ -104,6 +104,7 @@ class TeamFragment : Fragment(),TeamView {
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(eventName: String?): Boolean {
+                spinner_team.visibility = View.GONE
                 presenter.getSearchTeams(eventName)
                 adapter = TeamsAdapter(teams) {
                     context?.startActivity<TeamDetailActivity>(
